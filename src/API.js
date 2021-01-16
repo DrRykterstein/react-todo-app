@@ -12,16 +12,4 @@ const fetchBackgroundImageData = async () => {
   }
 }
 
-// Fetch Todo-List API data
-// const fetchTodoData = async () => {
-//   try {
-//     const apiURL = 'https://jsonplaceholder.typicode.com/todos';
-//     const { data } = await axios.get(apiURL);
-//     console.log(data);
-//     return data;
-//   } catch(err) {
-//     console.error(`Todo API - ${err}`);
-//   }
-// }
-
 export default fetchBackgroundImageData;

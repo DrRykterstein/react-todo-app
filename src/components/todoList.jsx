@@ -18,8 +18,9 @@ class TodoList extends React.Component {
 
   // Renders a new todo item onto the page
   handleSubmit(event) {
-    const inputValue = document.querySelector('.todo-list-input').value;
-
+    // initialise input value from 'event' object
+    const inputValue = event.target.value; 
+    
     if (event.key === 'Enter' && inputValue !== '') {
       let { todos, todo } = this.state;  
       todo = { value: inputValue, id: uuid() }; // update the current todo item
@@ -50,7 +51,6 @@ class TodoList extends React.Component {
                 key={idx} 
                 id={todo.id}
                 todo={todo.value}
-                completed={completed}
                 handleDelete={this.handleDelete} 
               />
             ))}

@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Todo = (props) => {
-  const { todo, id, handleDelete } = props;
-  const [completed, setCompleted] = useState(false); // Initialise 'completed' state variable
-
-  // Handles todo item completion state
-  const handleUpdate = () => {
-    setCompleted(!completed);
-  };
+const Todo = ({ todo, handleUpdate, handleDelete }) => { 
+  const { id, completed, value } = todo;
 
   return (
     <li className="todo-item">
-      <span id="checkBox" onClick={handleUpdate}>
+      <span id="checkBox" onClick={() => handleUpdate(todo)}>
         {completed === true ?
         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" className="bi bi-check2-square" viewBox="0 0 16 16">
           <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
@@ -23,7 +17,7 @@ const Todo = (props) => {
         }
       </span>
       <span className={`todo-text ${completed === true && "text-strike-through"}`}>
-        {todo}
+        {value}
       </span>
       <span onClick={() => handleDelete(id)}>
         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" className="bi bi-x" viewBox="0 0 16 16">

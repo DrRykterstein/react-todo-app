@@ -21,6 +21,17 @@ class TodoList extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   };
 
+  // Get todo items from local storage and load into state upon mount
+  componentDidMount() {
+    const todos = JSON.parse(localStorage.getItem('todos'));
+    todos && this.setState({ todos: todos });
+  };
+
+  // Store todo items in local storage after rendering of the component
+  componentDidUpdate() {
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+  };
+
   // Renders a new todo item onto the page
   handleSubmit(e) {
     // initialise input value from 'event' object
@@ -39,7 +50,8 @@ class TodoList extends React.Component {
 
       // Update state of todo item followed by list of todos
       this.setState({ todo: todo });
-      todos.push(todo); 
+      todos.push(todo);     
+
       this.setState({ todos: todos }); 
       e.target.value = ''; // Empty input field
     }

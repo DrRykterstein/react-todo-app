@@ -11,7 +11,7 @@ class App extends React.Component {
 
     // Initialise state
     this.state = {
-      backgroundImageInfo: { 
+      backgroundImageInfo: {
         name: "",
         location: "",
         description: ""

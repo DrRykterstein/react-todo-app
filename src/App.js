@@ -14,7 +14,8 @@ class App extends React.Component {
       backgroundImageInfo: {
         name: "",
         location: "",
-        description: ""
+        description: "",
+        link: ""
       },
       backgroundImage: "" 
     };   
@@ -45,7 +46,8 @@ class App extends React.Component {
     backgroundImageInfo = {
       name: backgroundImageResult.user.name,
       location: backgroundImageResult.user.location,
-      description: backgroundImageResult.alt_description
+      description: backgroundImageResult.alt_description,
+      link: backgroundImageResult.urls.full
     };
 
     this.setState({ backgroundImageInfo: backgroundImageInfo });

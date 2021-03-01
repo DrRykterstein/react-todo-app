@@ -76,7 +76,7 @@ class TodoList extends React.Component {
     return (
       <React.Fragment>
         <div className="todo-list-container">
-          <h1 className="todo-list-greeting">Hello, Rio</h1>
+          <h1 className="todo-list-greeting">Hello, Friend</h1>
           <h2 className="todo-list-question">What do you wish to accomplish?</h2>
           <input className="todo-list-input " type="text" onKeyUp={todos.length < 5 && this.handleSubmit}/>
           <ul className="todo-container">

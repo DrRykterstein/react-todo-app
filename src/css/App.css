@@ -39,20 +39,9 @@
 }
 
 /* HEADER SECTION */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.login {
-  padding: 10px 14px;
-  font-size: inherit;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px solid #979395;
-  border-radius: 5px;
-  margin: 0;
+.eyeglasses {
+  position: relative;
+  float: right;
 }
 
 /* TODO-LIST SECTION */

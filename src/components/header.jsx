@@ -4,8 +4,7 @@ const Header = ({ eyeglasses }) => {
   return (
     <React.Fragment>
       <nav className="header">
-        <img className="eyeglasses" src={eyeglasses} alt="eyeglasses"/>  
-        <button className="btn login">Login</button>     
+        <img className="eyeglasses" src={eyeglasses} alt="eyeglasses"/>      
       </nav>
     </React.Fragment>
   );

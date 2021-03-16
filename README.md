@@ -2,13 +2,12 @@
 
 A simple, elegant Todo List App built in react.
 
+## Launch
+This project was hosted using netlify at https://optimistic-poitras-267ce4.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Launch
-
-This project was hosted using netlify at https://optimistic-poitras-267ce4.netlify.app/
 
 ## Available Scripts
 

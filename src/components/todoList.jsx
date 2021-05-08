@@ -30,6 +30,7 @@ class TodoList extends React.Component {
 	async fetchAllTodos() {
 		const todos = await queryTodos.fetchAll();
 		this.setState({ todos: todos });
+		console.log(todos);
 	}
 
 	// Add a new todo
@@ -49,6 +50,7 @@ class TodoList extends React.Component {
 	// Toggles completion state of todo item
 	async handleUpdate(todo) {
 		await queryTodos.update(todo); // Store updated todo within database
+		console.log(todo.completed);
 		this.fetchAllTodos();
 	}
 

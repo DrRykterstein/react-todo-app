@@ -23,7 +23,9 @@ class QueryTodos {
 
 	update = async ({ id, completed }) => {
 		try {
-			const { data } = await axios.put(`/api/todos/${id}`, !completed);
+			const { data } = await axios.put(`/api/todos/${id}`, {
+				completed: completed,
+			});
 			return data;
 		} catch (err) {
 			console.error(`Delete ${err.message}`);

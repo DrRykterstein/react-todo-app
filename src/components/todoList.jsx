@@ -30,7 +30,6 @@ class TodoList extends React.Component {
 	async fetchAllTodos() {
 		const todos = await queryTodos.fetchAll();
 		this.setState({ todos: todos });
-		console.log(todos);
 	}
 
 	// Add a new todo
@@ -38,10 +37,7 @@ class TodoList extends React.Component {
 		const { value } = this.state;
 
 		if (e.key === "Enter" && value !== "") {
-			let todos = [...this.state.todos];
-
-			// Add new todo and then fetch all todos
-			await queryTodos.send(value);
+			await queryTodos.send(value); // Add new todo item
 			this.fetchAllTodos();
 			e.target.value = ""; // Empty input field
 		}
@@ -49,8 +45,8 @@ class TodoList extends React.Component {
 
 	// Toggles completion state of todo item
 	async handleUpdate(todo) {
+		todo.completed = !todo.completed; // Invert state and convert to number format
 		await queryTodos.update(todo); // Store updated todo within database
-		console.log(todo.completed);
 		this.fetchAllTodos();
 	}
 

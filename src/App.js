@@ -8,7 +8,6 @@ import Footer from "./components/footer.jsx";
 class App extends React.Component {
 	constructor() {
 		super();
-
 		// Initialise state
 		this.state = {
 			backgroundImageInfo: {
@@ -23,11 +22,13 @@ class App extends React.Component {
 
 	// Use background image data to update the state upon mount
 	async componentDidMount() {
-		// const backgroundImageResults = await fetchBackgroundImageData();
-		// const backgroundImageResult = this.selectBackgroundImage(backgroundImageResults);
-		// const backgroundImage = backgroundImageResult.urls.full;
-		// this.handleBackgroundImageInfo(backgroundImageResult);
-		// this.setState({ backgroundImage: backgroundImage });
+		const backgroundImageResults = await fetchBackgroundImageData();
+		const backgroundImageResult = this.selectBackgroundImage(
+			backgroundImageResults
+		);
+		const backgroundImage = backgroundImageResult.urls.full;
+		this.handleBackgroundImageInfo(backgroundImageResult);
+		this.setState({ backgroundImage });
 	}
 
 	// Selects a random background image data object from the results

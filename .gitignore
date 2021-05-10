@@ -1,1 +1,10 @@
-node_modules
+# client
+/client/node_modules
+/client/.eslintcache
+
+# server
+/server/node_modules
+/server/config
+
+# encryption
+.env

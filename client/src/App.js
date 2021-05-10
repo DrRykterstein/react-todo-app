@@ -8,7 +8,6 @@ import Footer from "./components/footer.jsx";
 class App extends React.Component {
 	constructor() {
 		super();
-		// Initialise state
 		this.state = {
 			backgroundImageInfo: {
 				name: "",
@@ -52,7 +51,7 @@ class App extends React.Component {
 			link: backgroundImageResult.urls.full,
 		};
 
-		this.setState({ backgroundImageInfo: backgroundImageInfo });
+		this.setState({ backgroundImageInfo });
 	}
 
 	render() {

@@ -29,7 +29,7 @@ class TodoList extends React.Component {
 	// Fetch all todo items
 	async fetchAllTodos() {
 		const todos = await queryTodos.fetchAll();
-		this.setState({ todos: todos });
+		this.setState({ todos });
 	}
 
 	// Add a new todo
@@ -69,10 +69,10 @@ class TodoList extends React.Component {
 					className="todo-list-input"
 					type="text"
 					onChange={e => this.handleInputChange(e)}
-					onKeyUp={todos.length < 5 ? this.handleSubmit : undefined}
+					onKeyUp={todos?.length < 5 ? this.handleSubmit : undefined}
 				/>
 				<ul className="todo-container">
-					{todos.map(todo => (
+					{todos?.map(todo => (
 						<Todo
 							key={todo.id}
 							todo={todo}

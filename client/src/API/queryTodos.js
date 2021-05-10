@@ -7,7 +7,7 @@ class QueryTodos {
 			const { data } = await axios.get("/api/todos");
 			return data;
 		} catch (err) {
-			console.error(`Get ${err.message}`);
+			console.error(`GET ${err.message}`);
 		}
 	};
 
@@ -17,18 +17,16 @@ class QueryTodos {
 			const { data } = await axios.post(`/api/todos`, todo);
 			return data;
 		} catch (err) {
-			console.error(`Post ${err.message}`);
+			console.error(`POST ${err.message}`);
 		}
 	};
 
 	update = async ({ id, completed }) => {
 		try {
-			const { data } = await axios.put(`/api/todos/${id}`, {
-				completed: completed,
-			});
+			const { data } = await axios.put(`/api/todos/${id}`, { completed });
 			return data;
 		} catch (err) {
-			console.error(`Delete ${err.message}`);
+			console.error(`PUT ${err.message}`);
 		}
 	};
 
@@ -37,7 +35,7 @@ class QueryTodos {
 			const { data } = await axios.delete(`/api/todos/${todoId}`);
 			return data;
 		} catch (err) {
-			console.error(`Delete ${err.message}`);
+			console.error(`DELETE ${err.message}`);
 		}
 	};
 }

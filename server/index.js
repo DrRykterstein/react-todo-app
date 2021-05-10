@@ -3,16 +3,14 @@ const mysql = require("mysql2");
 const config = require("./config/config");
 
 const app = new express();
-const PORT = 7700;
+const PORT = 5000;
 const db = mysql.createConnection(config.mysql);
 const endpoint = "/api/todos";
 
 app.use(express.json()); // Parse middleware
 
 app.get("/", (req, res) => res.send("This is the Todo App server..."));
-app.get("/api", (req, res) =>
-	res.send("Starting point for API routes...")
-);
+app.get("/api", (req, res) => res.send("API routes begin here..."));
 
 // Handle GET requests
 app.get(endpoint, (req, res) => {
@@ -23,7 +21,6 @@ app.get(endpoint, (req, res) => {
 			console.error(`GET ${err.message}`);
 			return res.sendStatus(500);
 		}
-		console.log(todos);
 		res.status(200).json(todos);
 	});
 });
@@ -43,7 +40,7 @@ app.post(endpoint, (req, res) => {
 });
 
 // Handle PUT requests
-app.put(`${endpoint}:id`, (req, res) => {
+app.put(`${endpoint}/:id`, (req, res) => {
 	const { completed } = req.body;
 	const { id } = req.params;
 	const query = "UPDATE todos SET completed = ? WHERE id = ?";
@@ -58,7 +55,7 @@ app.put(`${endpoint}:id`, (req, res) => {
 });
 
 // Handle DELETE requests
-app.delete(`${endpoint}:id`, ({ params: { id } }, res) => {
+app.delete(`${endpoint}/:id`, ({ params: { id } }, res) => {
 	const query = "DELETE FROM todos WHERE id = ?";
 
 	db.query(query, id, err => {

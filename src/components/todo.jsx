@@ -6,7 +6,7 @@ const Todo = ({ todo, handleUpdate, handleDelete }) => {
 	return (
 		<li className="todo-item">
 			<span id="checkBox">
-				{completed === true ? (
+				{completed ? (
 					<svg
 						onClick={() => handleUpdate(todo)}
 						xmlns="http://www.w3.org/2000/svg"
@@ -33,11 +33,7 @@ const Todo = ({ todo, handleUpdate, handleDelete }) => {
 					</svg>
 				)}
 			</span>
-			<span
-				className={`todo-text ${
-					completed === true && "text-strike-through"
-				}`}
-			>
+			<span className={`todo-text ${completed && "text-strike-through"}`}>
 				{value}
 			</span>
 			<span>

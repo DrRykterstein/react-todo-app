@@ -29,18 +29,15 @@ class TodoList extends React.Component {
 	// Fetch all todo items
 	async fetchAllTodos() {
 		const todos = await queryTodos.fetchAll();
-		this.setState({ todos });
+		this.setState({ todos: todos });
 	}
 
 	// Add a new todo
-	handleSubmit(e) {
+	async handleSubmit(e) {
 		const { value } = this.state;
 
 		if (e.key === "Enter" && value !== "") {
-			let todos = [...this.state.todos];
-
-			// Add new todo and then fetch all todos
-			queryTodos.send(value);
+			await queryTodos.send(value); // Add new todo item
 			this.fetchAllTodos();
 			e.target.value = ""; // Empty input field
 		}
@@ -48,16 +45,15 @@ class TodoList extends React.Component {
 
 	// Toggles completion state of todo item
 	async handleUpdate(todo) {
-		queryTodos.update(todo); // Store updated todo within database
-		await this.fetchAllTodos();
+		todo.completed = !todo.completed; // Invert state and convert to number format
+		await queryTodos.update(todo); // Store updated todo within database
+		this.fetchAllTodos();
 	}
 
 	// Removes todo item from the page
 	async handleDelete(todoId) {
-		queryTodos.delete(todoId);
-		await this.fetchAllTodos();
-		// const todos = [...this.state.todos].filter(todo => todo.id !== id);
-		// this.setState({ todos: todos });
+		await queryTodos.delete(todoId);
+		this.fetchAllTodos();
 	}
 
 	render() {

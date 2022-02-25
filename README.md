@@ -1,8 +1,9 @@
-# Todo List App
+# Task Tracker
 
-A simple, elegant Todo List App built in react.
+A simple, elegant task tracking app built in react.
 
 ## Launch
+
 This project was hosted using netlify at https://optimistic-poitras-267ce4.netlify.app/
 
 # Getting Started with Create React App
